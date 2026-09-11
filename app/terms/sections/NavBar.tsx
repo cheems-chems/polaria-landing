@@ -1,11 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Menu } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { useState } from 'react';
 
 import { Logo } from '@/app/logo';
-import { Button } from '@/components/ui/button';
 
 export function NavBar() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,15 +36,12 @@ export function NavBar() {
 					</a>
 				</nav>
 				<div className="hidden items-center gap-2 md:flex">
-					<Button variant="ghost" size="sm" className="rounded-full px-4">
-						Acceder
-					</Button>
-					<Button
-						size="sm"
-						className="rounded-full bg-neutral-950 px-4 text-white hover:bg-neutral-800"
+					<Link
+						href="https://app.polariahq.com/auth"
+						className="rounded-full px-4 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-950"
 					>
-						Empezá Gratis
-					</Button>
+						Acceder
+					</Link>
 				</div>
 				<div className="relative md:hidden">
 					<button
@@ -79,31 +75,16 @@ export function NavBar() {
 								</a>
 							))}
 							<div className="my-1 border-t border-neutral-100" />
-							<a
-								href="#"
+							<Link
+								href="https://app.polariahq.com/auth"
 								onClick={() => setIsMenuOpen(false)}
 								className="rounded-xl px-3 py-2.5 transition-colors hover:bg-neutral-50 hover:text-neutral-950"
 							>
 								Acceder
-							</a>
-							<a
-								href="#"
-								onClick={() => setIsMenuOpen(false)}
-								className="mt-1 rounded-xl bg-neutral-950 px-3 py-2.5 font-medium text-white transition-colors hover:bg-neutral-800"
-							>
-								Empezá Gratis <ArrowRight className="ml-1 inline size-3.5" />
-							</a>
+							</Link>
 						</nav>
 					</div>
 				</div>
-				<Button
-					variant="ghost"
-					size="icon-sm"
-					className="hidden"
-					aria-label="Abrir menú"
-				>
-					<Menu className="size-4" />
-				</Button>
 			</div>
 		</header>
 	);

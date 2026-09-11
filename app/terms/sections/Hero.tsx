@@ -1,8 +1,10 @@
 'use client';
 
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
+import { whatsappUrl } from '@/config/cta';
 
 import { SectionEyebrow } from '../shared/Section';
 
@@ -26,15 +28,20 @@ export function Hero() {
 						fidelizar clientes desde una sola herramienta.
 					</p>
 					<div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-						<Button className="hero-primary-btn h-11 rounded-full bg-neutral-950 px-6 text-white transition-transform duration-300 ease-out hover:scale-[1.02] hover:bg-neutral-800 active:scale-[0.99] motion-reduce:transition-none motion-reduce:hover:scale-100">
-							Empezar gratis
-							<ArrowRight className="ml-1 size-4" />
+						<Button asChild className="hero-primary-btn h-11 rounded-full bg-neutral-950 px-6 text-white transition-transform duration-300 ease-out hover:scale-[1.02] hover:bg-neutral-800 active:scale-[0.99] motion-reduce:transition-none motion-reduce:hover:scale-100">
+							<Link href="https://app.polariahq.com/auth">
+								Empezar gratis
+								<ArrowRight className="ml-1 size-4" />
+							</Link>
 						</Button>
 						<Button
+							asChild
 							variant="outline"
 							className="hero-secondary-btn h-11 rounded-full border-neutral-300 px-6 transition-transform duration-300 ease-out hover:scale-[1.02] hover:bg-neutral-50 active:scale-[0.99] motion-reduce:transition-none motion-reduce:hover:scale-100"
 						>
-							Ver demo en vivo
+							<Link href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+								Probar por WhatsApp
+							</Link>
 						</Button>
 					</div>
 				</div>
