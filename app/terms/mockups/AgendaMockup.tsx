@@ -357,9 +357,7 @@ function StaffView() {
 							{staff.commission}
 						</span>
 						<div className="flex items-center justify-between">
-							<span
-								className={`h-4 w-7 rounded-full ${staff.active ? 'bg-neutral-950' : 'bg-neutral-200'}`}
-							/>
+							<MockSwitch checked={staff.active} />
 							<Trash2 className="size-3.5 text-red-400 sm:hidden" />
 						</div>
 					</div>
@@ -478,7 +476,7 @@ function SettingsView() {
 						</p>
 					</div>
 				</div>
-				<span className="h-4 w-7 rounded-full bg-neutral-950" />
+				<MockSwitch checked />
 			</div>
 			<div className="mt-3 space-y-0 overflow-hidden rounded-2xl border border-neutral-200 bg-white">
 				{rows.map((row) => (
@@ -504,7 +502,7 @@ function SettingsView() {
 					].map(({ label, icon: Icon, active }) => (
 						<div
 							key={label}
-							className={`flex flex-col items-center gap-1.5 rounded-xl border px-3 py-3 text-[10px] ${active ? 'border-neutral-950 bg-neutral-50 text-neutral-950' : 'border-neutral-200 text-neutral-500'}`}
+							className={`flex min-h-18 flex-col items-center justify-center gap-1.5 rounded-xl border px-3 py-3 text-[10px] font-medium transition-[background-color,color,border-color,box-shadow] duration-200 ease-out ${active ? 'border-neutral-950 bg-neutral-950 text-white shadow-sm' : 'border-neutral-200 text-neutral-500'}`}
 						>
 							<Icon className="size-3.5" />
 							{label}
@@ -513,6 +511,19 @@ function SettingsView() {
 				</div>
 			</div>
 		</DashboardView>
+	);
+}
+
+function MockSwitch({ checked }: { checked: boolean }) {
+	return (
+		<span
+			aria-hidden="true"
+			className={`inline-flex h-5 w-10 shrink-0 items-center rounded-full border border-neutral-200 p-0.5 shadow-xs transition-colors duration-200 ease-out ${checked ? 'border-neutral-950 bg-neutral-950' : 'bg-neutral-200'}`}
+		>
+			<span
+				className={`size-4 rounded-full bg-white shadow-sm ring-1 ring-black/10 transition-transform duration-200 ease-out ${checked ? 'translate-x-5' : 'translate-x-0'}`}
+			/>
+		</span>
 	);
 }
 function DashboardView({
