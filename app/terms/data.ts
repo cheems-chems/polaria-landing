@@ -9,14 +9,13 @@ import {
 } from 'lucide-react';
 
 export const businessTypes = [
-	'Barberias',
-	'Salones de Belleza',
-	'Spas & Bienestar',
-	'Clinicas Dentales',
-	'Medicina Estetica',
-	'Cosmetica',
-	'Y mas...',
-];
+	{ label: 'Barberías', image: '/industries/pexels-misho-chachanidze-29104578-6956293.jpg' },
+	{ label: 'Salones de Belleza', image: '/industries/pexels-artbovich-7750114.jpg' },
+	{ label: 'Spas & Bienestar', image: '/industries/pexels-artbovich-6899554.jpg' },
+	{ label: 'Clínicas Dentales', image: '/industries/pexels-fr3nks-287237.jpg' },
+	{ label: 'Medicina Estética', image: '/industries/pexels-zandatsu-16571735.jpg' },
+	{ label: 'Cosmética', image: '/industries/pexels-artbovich-13068359.jpg' },
+] as const;
 export const features: {
 	icon: LucideIcon;
 	title: string;
